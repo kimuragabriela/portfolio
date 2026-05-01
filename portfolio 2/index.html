@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gabe — Product Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-dark: #1f1b1d;
+      --bg-black: #0e0e0e;
+      --bg-white: #ffffff;
+      --accent: #05ff00;
+      --text-white: #ffffff;
+      --text-black: #070204;
+      --text-muted: #888a8b;
+      --text-tag: rgba(7,2,4,0.15);
+      --radius-lg: 16px;
+      --pad-global: 64px;
+      --pad-section: 112px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg-white); color: var(--text-black); overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--bg-dark);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px var(--pad-global);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo {
+      font-family: 'Rubik', sans-serif; font-weight: 800;
+      font-size: 18px; color: var(--text-white); text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500;
+      color: rgba(255,255,255,0.6); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--bg-dark);
+      padding: calc(var(--pad-section) + 64px) var(--pad-global) var(--pad-section);
+    }
+    .hero-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; gap: 80px; align-items: flex-end;
+    }
+    .hero-left { flex: 0 0 644px; }
+    .hero-heading {
+      font-family: 'Rubik', sans-serif; font-weight: 800;
+      font-size: clamp(56px, 7vw, 96px); line-height: 1.2;
+      color: var(--text-white);
+    }
+    .hero-right {
+      flex: 1 1 0; min-width: 0;
+      padding-top: 115px;
+      display: flex; flex-direction: column; gap: 32px;
+    }
+    .hero-body {
+      font-size: 18px; line-height: 1.5; color: var(--text-white);
+    }
+    .hero-actions { display: flex; gap: 16px; }
+    .btn-primary {
+      background: var(--text-white); border: 1px solid var(--accent);
+      color: var(--text-black); font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 16px; line-height: 1.5;
+      padding: 6px 12px; cursor: pointer; text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { background: var(--accent); }
+    .btn-outline {
+      border: 1px solid var(--accent); background: transparent;
+      color: var(--text-white); font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 16px; line-height: 1.5;
+      padding: 6px 12px; cursor: pointer; text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .btn-outline:hover { background: var(--accent); color: var(--text-black); }
+
+    /* ── MARQUEE ── */
+    .marquee-section {
+      background: var(--bg-dark);
+      padding: 48px 0;
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .marquee-track {
+      display: flex; gap: 24px; align-items: center;
+      width: max-content;
+      animation: marquee 22s linear infinite;
+    }
+    .marquee-section:hover .marquee-track { animation-play-state: paused; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .marquee-star {
+      font-size: 14px; color: var(--text-white); flex-shrink: 0;
+    }
+    .marquee-text {
+      font-family: 'Rubik', sans-serif; font-size: 16px;
+      color: var(--accent); text-transform: uppercase;
+      letter-spacing: 0.08em; white-space: nowrap; flex-shrink: 0;
+    }
+
+    /* ── INTRO ── */
+    .intro {
+      background: var(--bg-white);
+      padding: var(--pad-section) var(--pad-global);
+      display: flex; gap: 24px; align-items: flex-end;
+    }
+    .intro-left {
+      flex: 0 0 310px;
+      display: flex; flex-direction: column; gap: 80px;
+      align-self: stretch;
+    }
+    .intro-arrow {
+      font-size: 55px; font-weight: 500; color: var(--text-black);
+      letter-spacing: -1.1px; line-height: 1;
+    }
+    .intro-label {
+      font-family: 'Rubik', sans-serif; font-weight: 500;
+      font-size: 16px; color: var(--text-black);
+      margin-top: auto;
+    }
+    .intro-right {
+      flex: 0 0 978px;
+      display: flex; flex-direction: column; gap: 80px;
+    }
+    .intro-headline {
+      font-family: 'Rubik', sans-serif; font-weight: 600;
+      font-size: clamp(22px, 2.5vw, 36px); line-height: 1.2;
+      color: var(--text-black); max-width: 882px;
+    }
+    .intro-body {
+      display: flex; flex-direction: column; gap: 22px;
+      max-width: 480px;
+    }
+    .intro-strong {
+      font-family: 'Rubik', sans-serif; font-weight: 500;
+      font-size: 16.5px; line-height: 1.57; color: var(--text-black);
+    }
+    .intro-p {
+      font-size: 16.5px; line-height: 1.57; color: var(--text-muted);
+    }
+    .btn-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Rubik', sans-serif; font-weight: 500; font-size: 16px;
+      color: var(--text-black); text-decoration: underline;
+      cursor: pointer; background: none; border: none; padding: 0;
+      margin-top: 8px;
+    }
+    .btn-link svg { width: 20px; height: 20px; }
+
+    /* ── PROJECTS ── */
+    .projects {
+      background: var(--bg-white);
+      padding: var(--pad-section) var(--pad-global);
+    }
+    .projects-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; flex-direction: column; gap: 80px; align-items: center;
+    }
+    .section-title {
+      font-family: 'Rubik', sans-serif; font-weight: 500;
+      font-size: clamp(56px, 7vw, 96px); letter-spacing: 0.12em;
+      color: var(--text-black); text-align: center;
+    }
+    .portfolio-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 48px; width: 100%;
+    }
+    .col-left { display: flex; flex-direction: column; gap: 64px; }
+    .col-right { display: flex; flex-direction: column; gap: 64px; }
+
+    /* card */
+    .card { display: flex; flex-direction: column; gap: 24px; }
+    .card-img {
+      width: 100%; border-radius: var(--radius-lg);
+      overflow: hidden; background: #e8e8e8;
+      position: relative;
+    }
+    .card-img img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.4s ease;
+    }
+    .card:hover .card-img img { transform: scale(1.03); }
+    .card-img.ratio-wide  { aspect-ratio: 16/9; }
+    .card-img.ratio-tall  { aspect-ratio: 1/1; }
+
+    /* placeholder coloured bg for demo */
+    .card-img.color-1 { background: linear-gradient(135deg, #c8d8ff, #a0b4e8); }
+    .card-img.color-2 { background: linear-gradient(135deg, #0c1a33, #1a3060); }
+    .card-img.color-3 { background: linear-gradient(135deg, #0a0a0a, #282828); }
+
+    .card-content { display: flex; flex-direction: column; gap: 16px; }
+    .card-heading {
+      font-family: 'Rubik', sans-serif; font-weight: 700;
+      font-size: clamp(20px, 1.8vw, 28px); line-height: 1.4;
+      color: var(--text-black); letter-spacing: 0.03em;
+    }
+    .card-text {
+      font-size: 16px; line-height: 1.5; color: var(--text-black);
+    }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      border: 1px solid var(--text-tag);
+      padding: 4px 10px; border-radius: 4px;
+      font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 14px; color: var(--text-black); white-space: nowrap;
+    }
+    .card-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'Inter', sans-serif; font-weight: 500;
+      font-size: 16px; color: var(--text-black);
+      text-decoration: none; cursor: pointer;
+      transition: gap 0.2s;
+    }
+    .card-link:hover { gap: 10px; }
+    .card-link svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    .projects-actions { display: flex; justify-content: center; }
+    .btn-border {
+      border: 1px solid var(--text-tag); border-radius: 6px;
+      padding: 6px 24px; font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 16px; color: var(--text-black);
+      cursor: pointer; background: none; text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-border:hover { border-color: var(--text-black); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-black);
+      padding: var(--pad-section) var(--pad-global);
+      display: flex; flex-direction: column; gap: 80px;
+    }
+    .footer-top {
+      max-width: 1280px; margin: 0 auto; width: 100%;
+      display: flex; align-items: center; justify-content: flex-end;
+      gap: 32px;
+    }
+    .footer-tagline {
+      font-family: 'Rubik', sans-serif; font-weight: 500;
+      font-size: 16px; color: var(--text-white); letter-spacing: 0.02em;
+    }
+    .footer-socials { display: flex; gap: 16px; align-items: center; }
+    .footer-socials a { display: flex; color: rgba(255,255,255,0.7); transition: color 0.2s; }
+    .footer-socials a:hover { color: var(--accent); }
+    .footer-socials svg { width: 24px; height: 24px; }
+    .btn-link-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Inter', sans-serif; font-weight: 500; font-size: 16px;
+      color: var(--text-white); text-decoration: underline;
+      cursor: pointer; background: none; border: none; white-space: nowrap;
+    }
+    .footer-words {
+      max-width: 1280px; margin: 0 auto; width: 100%;
+      display: flex; flex-direction: column; gap: 8px;
+      padding-left: max(555px, 40%);
+    }
+    .footer-word {
+      font-family: 'Rubik', sans-serif; font-weight: 800;
+      font-size: clamp(48px, 8vw, 120px); color: var(--text-white);
+      text-transform: uppercase; line-height: 1;
+      transition: opacity 0.3s;
+    }
+    .footer-word.dim { opacity: 0.3; }
+    .footer-word:hover { opacity: 1 !important; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .hero-inner { flex-direction: column; gap: 48px; }
+      .hero-left { flex: none; width: 100%; }
+      .hero-right { padding-top: 0; }
+      .intro { flex-direction: column; gap: 48px; }
+      .intro-left { flex: none; width: 100%; flex-direction: row; align-items: center; justify-content: space-between; }
+      .intro-right { flex: none; width: 100%; }
+      .intro-body { max-width: 100%; }
+    }
+    @media (max-width: 768px) {
+      :root { --pad-global: 20px; --pad-section: 64px; }
+      nav { padding: 16px var(--pad-global); }
+      .nav-links { gap: 20px; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .footer-words { padding-left: 0; }
+      .footer-top { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">gabe.</a>
+    <div class="nav-links">
+      <a href="#work">work</a>
+      <a href="#about">who</a>
+      <a href="#contact">contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <h1 class="hero-heading">oi, i'm gabe</h1>
+      </div>
+      <div class="hero-right">
+        <p class="hero-body">
+          Product Designer fascinada por criar narrativas que ajudem as pessoas
+          nos desafios do dia a dia. Por isso trago mais de 10 anos de experiência
+          em estratégia de conteúdo para o centro do meu processo de design.
+        </p>
+        <div class="hero-actions">
+          <a href="https://linkedin.com" target="_blank" class="btn-primary">Check my Linkedin</a>
+          <a href="#work" class="btn-outline">View work →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track" aria-hidden="true">
+      <!-- repeated twice for seamless loop -->
+      <span class="marquee-star">✦</span><span class="marquee-text">Generative AI for Design</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Responsive Design</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Design Handoff</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Design Systems</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Branding</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Product Delivery</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Visual Strategy</span>
+      <!-- duplicate -->
+      <span class="marquee-star">✦</span><span class="marquee-text">Generative AI for Design</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Responsive Design</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Design Handoff</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Design Systems</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Branding</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Product Delivery</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Visual Strategy</span>
+    </div>
+  </div>
+
+  <!-- INTRO / ABOUT -->
+  <section class="intro" id="about">
+    <div class="intro-left">
+      <span class="intro-arrow">→</span>
+      <span class="intro-label">about me</span>
+    </div>
+    <div class="intro-right">
+      <h2 class="intro-headline">
+        Equilibro a fluidez da experiência com os objetivos estratégicos de negócio.
+        Atuo em todo o ciclo de vida do produto — do Discovery ao Delivery — com um
+        olhar clínico para o refinamento de UX.
+      </h2>
+      <div class="intro-body">
+        <p class="intro-strong">
+          Minha abordagem é questionadora: investigo fluxos e a arquitetura de
+          informação para garantir que cada interação seja relevante, escalável e,
+          acima de tudo, humana.
+        </p>
+        <p class="intro-p">
+          Com expertise em Figma e Design Systems, encaro o design como um esporte
+          coletivo. Minha alta colaboração com equipes de Engenharia, Produto e QA
+          garante que a visão criativa seja tecnicamente viável e pronta para escala.
+          Se o desafio é transformar requisitos densos em interfaces de alta fidelidade
+          que convertem, essa é a minha praia.
+        </p>
+        <p class="intro-p">
+          Se você procura alguém para estruturar a arquitetura de informação do seu
+          produto ou escalar seu sistema de design com foco estratégico, vamos conversar.
+        </p>
+        <a href="#contact" class="btn-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          let's talk
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="work">
+    <div class="projects-inner">
+      <h2 class="section-title">WORK</h2>
+
+      <div class="portfolio-grid">
+        <!-- LEFT COLUMN -->
+        <div class="col-left">
+          <article class="card">
+            <div class="card-img ratio-wide color-1">
+              <!-- Substitua pelo seu src real: <img src="images/projeto-1.jpg" alt="VRTSync dashboard"> -->
+            </div>
+            <div class="card-content">
+              <h3 class="card-heading">Product Delivery, Dashboards e Arquitetura de Informação</h3>
+              <p class="card-text">
+                No VRTSync, reestruturei o painel de relatórios e mapas por categorias;
+                no TCS Mech, projetei a versão Desktop e Mobile responsiva de um produto
+                que era apenas app.
+              </p>
+              <div class="card-tags">
+                <span class="tag">UX Research</span>
+                <span class="tag">Dashboard</span>
+                <span class="tag">Mobile</span>
+              </div>
+              <a href="#" class="card-link">
+                View project
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9,18 15,12 9,6"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-img ratio-wide color-2">
+              <!-- <img src="images/projeto-2.jpg" alt="Project 2"> -->
+            </div>
+            <div class="card-content">
+              <h3 class="card-heading">Project name here</h3>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+              <div class="card-tags">
+                <span class="tag">Tag one</span>
+                <span class="tag">Tag two</span>
+                <span class="tag">Tag three</span>
+              </div>
+              <a href="#" class="card-link">
+                View project
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9,18 15,12 9,6"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="col-right">
+          <article class="card">
+            <div class="card-img ratio-tall color-3">
+              <!-- <img src="images/casper.jpg" alt="Casper Sleep"> -->
+            </div>
+            <div class="card-content">
+              <h3 class="card-heading">Casper Sleep: DesignOps e Eficiência de Handoff</h3>
+              <p class="card-text">Atuei na camada de Design Operations, reconstruindo o sistema do zero com foco em paridade técnica.</p>
+              <div class="card-tags">
+                <span class="tag">Design System</span>
+                <span class="tag">Shopify</span>
+                <span class="tag">High-Fidelity Prototyping</span>
+                <span class="tag">B2B SaaS</span>
+              </div>
+              <a href="#" class="card-link">
+                View project
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9,18 15,12 9,6"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-img ratio-wide color-1">
+              <!-- <img src="images/projeto-4.jpg" alt="Project 4"> -->
+            </div>
+            <div class="card-content">
+              <h3 class="card-heading">Project name here</h3>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+              <div class="card-tags">
+                <span class="tag">Tag one</span>
+                <span class="tag">Tag two</span>
+                <span class="tag">Tag three</span>
+              </div>
+              <a href="#" class="card-link">
+                View project
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9,18 15,12 9,6"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="projects-actions">
+        <a href="#" class="btn-border">View all</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-top">
+      <span class="footer-tagline">I craft experiences, design products, and tell stories.</span>
+      <div class="footer-socials">
+        <!-- Instagram -->
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+      </div>
+      <a href="mailto:hello@gabe.com" class="btn-link-white">
+        let's connect
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
+          <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="footer-words">
+      <div class="footer-word">UX Design</div>
+      <div class="footer-word dim">Creative</div>
+      <div class="footer-word dim">Strategy</div>
+    </div>
+  </footer>
+
+</body>
+</html>

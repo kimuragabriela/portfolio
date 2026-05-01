@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Who — Gabe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <style>
+    /* ── WHO PAGE ── */
+    .who-hero {
+      background: var(--bg-dark);
+      padding: calc(var(--pad-section) + 64px) var(--pad-global) var(--pad-section);
+    }
+    .who-hero-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      align-items: end;
+    }
+    .who-heading {
+      font-family: 'Rubik', sans-serif; font-weight: 800;
+      font-size: clamp(48px, 6vw, 80px); line-height: 1.15;
+      color: var(--text-white);
+    }
+    .who-hero-right { display: flex; flex-direction: column; gap: 32px; }
+    .who-lead {
+      font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.75);
+    }
+    .who-cta { display: flex; gap: 16px; }
+
+    /* ── ABOUT SECTION ── */
+    .about-section {
+      background: var(--bg-white);
+      padding: var(--pad-section) var(--pad-global);
+    }
+    .about-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: grid; grid-template-columns: 320px 1fr; gap: 80px;
+    }
+    .about-sidebar { display: flex; flex-direction: column; gap: 48px; }
+    .about-label {
+      font-family: 'Rubik', sans-serif; font-weight: 500;
+      font-size: 13px; color: var(--text-muted); text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .about-skills { display: flex; flex-direction: column; gap: 12px; }
+    .skill-item {
+      display: flex; justify-content: space-between; align-items: center;
+      border-bottom: 1px solid var(--text-tag); padding-bottom: 12px;
+      font-size: 15px; color: var(--text-black);
+    }
+    .skill-item span { color: var(--text-muted); font-size: 13px; }
+    .about-body { display: flex; flex-direction: column; gap: 32px; }
+    .about-headline {
+      font-family: 'Rubik', sans-serif; font-weight: 600;
+      font-size: clamp(24px, 2.5vw, 36px); line-height: 1.25;
+      color: var(--text-black);
+    }
+    .about-p { font-size: 16px; line-height: 1.7; color: var(--text-muted); }
+
+    /* ── EXPERIENCE ── */
+    .experience {
+      background: #f8f8f8;
+      padding: var(--pad-section) var(--pad-global);
+    }
+    .experience-inner { max-width: var(--max-w); margin: 0 auto; }
+    .exp-title {
+      font-family: 'Rubik', sans-serif; font-weight: 800;
+      font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 48px;
+    }
+    .exp-list { display: flex; flex-direction: column; gap: 0; }
+    .exp-item {
+      display: grid; grid-template-columns: 200px 1fr 160px;
+      align-items: start; gap: 24px;
+      padding: 28px 0; border-top: 1px solid var(--text-tag);
+    }
+    .exp-year { font-size: 14px; color: var(--text-muted); padding-top: 4px; }
+    .exp-role { font-family: 'Rubik', sans-serif; font-weight: 600; font-size: 18px; }
+    .exp-company { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+    .exp-tag {
+      font-size: 12px; font-weight: 600; color: var(--text-muted);
+      border: 1px solid var(--text-tag); padding: 4px 8px;
+      border-radius: 4px; white-space: nowrap; justify-self: end;
+    }
+
+    @media (max-width: 900px) {
+      .who-hero-inner, .about-inner { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 8px; }
+      .exp-tag { justify-self: start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">gabe.</a>
+    <div class="nav-links">
+      <a href="../index.html#work">work</a>
+      <a href="who.html" class="active">who</a>
+      <a href="../index.html#contact">contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="who-hero">
+    <div class="who-hero-inner">
+      <h1 class="who-heading">Designer,<br>storyteller,<br>thinker.</h1>
+      <div class="who-hero-right">
+        <p class="who-lead">
+          Product Designer fascinada por criar narrativas que ajudem as pessoas
+          nos desafios do dia a dia. Por isso trago mais de 10 anos de experiência
+          em estratégia de conteúdo para o centro do meu processo de design.
+        </p>
+        <div class="who-cta">
+          <a href="../index.html#work" class="btn-primary">See my work</a>
+          <a href="../index.html#contact" class="btn-outline">Let's talk →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track" aria-hidden="true">
+      <span class="marquee-star">✦</span><span class="marquee-text">Generative AI for Design</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Responsive Design</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Design Handoff</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Design Systems</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Branding</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Product Delivery</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Visual Strategy</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Generative AI for Design</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Responsive Design</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Design Handoff</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Design Systems</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Branding</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Product Delivery</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Visual Strategy</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about-section">
+    <div class="about-inner">
+      <aside class="about-sidebar">
+        <div>
+          <p class="about-label">Especialidades</p>
+          <div class="about-skills" style="margin-top:20px">
+            <div class="skill-item">UX Research <span>★★★★★</span></div>
+            <div class="skill-item">Design Systems <span>★★★★★</span></div>
+            <div class="skill-item">Figma / Prototyping <span>★★★★★</span></div>
+            <div class="skill-item">Product Strategy <span>★★★★☆</span></div>
+            <div class="skill-item">Generative AI <span>★★★★☆</span></div>
+            <div class="skill-item">Motion Design <span>★★★☆☆</span></div>
+          </div>
+        </div>
+        <div>
+          <p class="about-label">Ferramentas</p>
+          <div class="card-tags" style="margin-top:20px">
+            <span class="tag">Figma</span>
+            <span class="tag">FigJam</span>
+            <span class="tag">Notion</span>
+            <span class="tag">Jira</span>
+            <span class="tag">Maze</span>
+            <span class="tag">Miro</span>
+            <span class="tag">Lottie</span>
+          </div>
+        </div>
+      </aside>
+      <div class="about-body">
+        <h2 class="about-headline">
+          Equilibro a fluidez da experiência com os objetivos estratégicos de negócio.
+          Atuo em todo o ciclo de vida do produto — do Discovery ao Delivery.
+        </h2>
+        <p class="about-p">
+          Minha abordagem é questionadora: investigo fluxos e a arquitetura de
+          informação para garantir que cada interação seja relevante, escalável e,
+          acima de tudo, humana.
+        </p>
+        <p class="about-p">
+          Com expertise em Figma e Design Systems, encaro o design como um esporte
+          coletivo. Minha alta colaboração com equipes de Engenharia, Produto e QA
+          garante que a visão criativa seja tecnicamente viável e pronta para escala.
+        </p>
+        <p class="about-p">
+          Se você procura alguém para estruturar a arquitetura de informação do seu
+          produto ou escalar seu sistema de design com foco estratégico, vamos conversar.
+        </p>
+        <a href="mailto:hello@gabe.com" class="btn-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          let's talk
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="experience">
+    <div class="experience-inner">
+      <p class="exp-title">Experiência</p>
+      <div class="exp-list">
+        <div class="exp-item">
+          <span class="exp-year">2022 — presente</span>
+          <div>
+            <div class="exp-role">Senior Product Designer</div>
+            <div class="exp-company">Empresa atual</div>
+          </div>
+          <span class="exp-tag">Full-time</span>
+        </div>
+        <div class="exp-item">
+          <span class="exp-year">2020 — 2022</span>
+          <div>
+            <div class="exp-role">Product Designer</div>
+            <div class="exp-company">Casper Sleep</div>
+          </div>
+          <span class="exp-tag">Contract</span>
+        </div>
+        <div class="exp-item">
+          <span class="exp-year">2018 — 2020</span>
+          <div>
+            <div class="exp-role">UX Designer</div>
+            <div class="exp-company">VRTSync</div>
+          </div>
+          <span class="exp-tag">Full-time</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-top">
+      <span class="footer-tagline">I craft experiences, design products, and tell stories.</span>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+      </div>
+      <a href="mailto:hello@gabe.com" class="btn-link-white">
+        let's connect
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
+          <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+      </a>
+    </div>
+    <div class="footer-words">
+      <div class="footer-word">UX Design</div>
+      <div class="footer-word dim">Creative</div>
+      <div class="footer-word dim">Strategy</div>
+    </div>
+  </footer>
+
+</body>
+</html>

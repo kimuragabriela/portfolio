@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Who — Gabe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <style>
+
+    /* ─────────────────────────────────────────
+       NAV MOBILE
+    ───────────────────────────────────────── */
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+
+    /* ─────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────── */
+    .who-hero { background: #fff; padding: calc(112px + 64px) 64px 112px; }
+    .who-hero-container { max-width: 1280px; margin: 0 auto; display: flex; gap: 80px; align-items: flex-start; }
+    .hero-img-col {
+      flex: 0 0 600px; background: #070204;
+      height: 451px; overflow: hidden;
+      display: flex; align-items: flex-end; padding-left: 164px; position: relative;
+    }
+    .hero-name-img { position: absolute; left: 7px; bottom: 26px; width: 429px; height: 123px; object-fit: contain; }
+    .hero-text-col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 64px; align-self: flex-end; }
+    .hero-bio { font-family: 'Rubik', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.5; color: #070204; }
+    .btn-linkedin {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #070204; border: 1px solid #ffffff; color: #ffffff;
+      font-family: 'Inter', sans-serif; font-weight: 500; font-size: 16px;
+      line-height: 1.5; padding: 6px 12px; text-decoration: none;
+      white-space: nowrap; transition: opacity 0.2s;
+    }
+    .btn-linkedin:hover { opacity: 0.75; }
+
+    /* ─────────────────────────────────────────
+       EXPERIENCE
+    ───────────────────────────────────────── */
+    .experience-section { background: #fff; padding: 112px 64px; }
+    .experience-container { max-width: 1280px; margin: 0 auto; display: flex; gap: 80px; align-items: flex-start; justify-content: center; }
+    .exp-heading-col { flex: 0 0 464px; display: flex; align-items: center; justify-content: center; }
+    .exp-heading { font-family: 'Rubik', sans-serif; font-weight: 700; font-size: 44px; line-height: 1.2; letter-spacing: -0.44px; color: #070204; width: 100%; }
+    .exp-body-col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 80px; }
+    .exp-richtext { display: flex; flex-direction: column; }
+    .exp-p-semibold { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.5; color: #070204; padding-bottom: 16px; }
+    .exp-p { font-size: 16px; line-height: 1.5; color: #070204; padding-bottom: 16px; }
+    .exp-p:last-child { padding-bottom: 0; }
+    .exp-list { border-bottom: 1px solid rgba(7,2,4,0.15); color: #070204; }
+    .exp-item { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; border-top: 1px solid rgba(7,2,4,0.15); white-space: nowrap; }
+    .exp-role { font-family: 'Rubik', sans-serif; font-weight: 700; font-size: 22px; line-height: 1.4; letter-spacing: -0.22px; }
+    .exp-period { font-size: 16px; line-height: 1.5; text-align: right; }
+
+    /* ─────────────────────────────────────────
+       EDUCATION TABS
+    ───────────────────────────────────────── */
+    .education-section { background: #fff; padding: 112px 64px; }
+    .edu-tabs { display: flex; align-items: stretch; width: 100%; }
+    .edu-tab { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center; padding: 16px 24px; text-align: center; border-top: 2px solid #b4b3b3; color: #070204; }
+    .edu-tab.active { background: #000000; border-top-color: #09f404; color: #ffffff; }
+    .edu-tab-title { font-family: 'Rubik', sans-serif; font-weight: 700; font-size: 22px; line-height: 1.4; letter-spacing: -0.22px; white-space: nowrap; }
+    .edu-tab-sub { font-size: 16px; line-height: 1.5; }
+
+    /* ─────────────────────────────────────────
+       BANNER
+    ───────────────────────────────────────── */
+    .banner-section { background: #fff; padding: 112px 0; overflow: hidden; }
+    .banner-inner { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: nowrap; }
+    .banner-word { font-family: 'Rubik', sans-serif; font-weight: 700; font-size: clamp(36px, 5vw, 72px); line-height: 1.2; letter-spacing: -0.72px; color: #070204; white-space: nowrap; padding: 0 16px; }
+    .banner-icon { display: flex; align-items: center; justify-content: center; width: 144px; height: 96px; flex-shrink: 0; overflow: hidden; }
+    .banner-icon svg { width: 100%; height: auto; }
+    .banner-icon-sm { width: 96px; height: 96px; }
+
+    /* ─────────────────────────────────────────
+       MOBILE
+    ───────────────────────────────────────── */
+    @media (max-width: 768px) {
+      /* nav */
+      nav { padding: 16px 20px !important; }
+      .nav-links { display: none !important; }
+      .nav-hamburger { display: flex; }
+
+      /* hero */
+      .who-hero { padding: calc(64px + 56px) 20px 48px; }
+      .who-hero-container { flex-direction: column; gap: 32px; }
+      .hero-img-col {
+        flex: none; width: 100%; height: 196px;
+        padding-left: 20px;
+        background: #070204;
+      }
+      .hero-name-img { left: 20px; bottom: 16px; width: 245px; height: 62px; }
+      .hero-text-col { gap: 32px; align-self: stretch; }
+      .hero-bio { font-size: 12px; }
+      .btn-linkedin { font-size: 12px; padding: 12px 20px; width: 100%; justify-content: center; border-radius: 6px; }
+
+      /* marquee */
+      .marquee-section { padding: 32px 0; }
+
+      /* experience */
+      .experience-section { padding: 48px 20px; }
+      .experience-container { flex-direction: column; gap: 32px; }
+      .exp-heading-col { flex: none; width: 100%; }
+      .exp-heading { font-size: 32px; }
+      .exp-body-col { gap: 32px; }
+      .exp-p-semibold, .exp-p { font-size: 12px; }
+      .exp-role { font-size: 16px; }
+      .exp-period { font-size: 12px; }
+      .exp-item { white-space: normal; gap: 8px; }
+
+      /* education tabs — vertical on mobile */
+      .education-section { padding: 48px 20px; }
+      .edu-tabs { flex-direction: column; padding: 0 20px; }
+      .edu-tab { align-items: flex-start; text-align: left; border-top: none; border-left: 2px solid #b4b3b3; padding: 16px 24px; }
+      .edu-tab.active { border-left-color: #09f404; border-top: none; }
+      .edu-tab-title { font-size: 18px; white-space: normal; }
+      .edu-tab-sub { font-size: 14px; }
+
+      /* banner */
+      .banner-section { padding: 48px 0; }
+      .banner-word { font-size: clamp(24px, 6vw, 40px); padding: 0 8px; }
+      .banner-icon { width: 80px; height: 48px; }
+      .banner-icon-sm { width: 56px; height: 48px; }
+
+      /* footer */
+      footer { padding: 48px 20px; gap: 32px; }
+      .footer-top { flex-direction: column; align-items: center; gap: 16px; }
+      .footer-tagline { font-size: 12px; text-align: center; }
+      .footer-socials svg { width: 36px; height: 36px; }
+      .footer-words { padding-left: 0; align-items: flex-end; }
+      .footer-word { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="../index.html" class="nav-logo">gabe.</a>
+    <div class="nav-links">
+      <a href="../index.html#work">work</a>
+      <a href="who.html" class="active">who</a>
+      <a href="../index.html#contact">contact</a>
+    </div>
+    <div class="nav-hamburger" onclick="this.closest('nav').querySelector('.nav-links').style.display = this.closest('nav').querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="who-hero">
+    <div class="who-hero-container">
+      <div class="hero-img-col">
+        <img
+          class="hero-name-img"
+          src="https://www.figma.com/api/mcp/asset/67503845-3937-4c58-8534-1b5a2d734dba"
+          alt="oi, i'm gabe"
+        />
+      </div>
+      <div class="hero-text-col">
+        <p class="hero-bio">
+          Product Designer fascinada por criar narrativas que ajudem as pessoas
+          nos desafios do dia a dia. Por isso trago mais de 10 anos de experiência
+          em estratégia de conteúdo para o centro do meu processo de design.
+        </p>
+        <div>
+          <a href="https://linkedin.com/in/" target="_blank" class="btn-linkedin">Check my Linkedin</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track" aria-hidden="true">
+      <span class="marquee-star">✦</span><span class="marquee-text">Generative AI for Design</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Responsive Design</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Design Handoff</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Design Systems</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Branding</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Product Delivery</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Visual Strategy</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Generative AI for Design</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Responsive Design</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Design Handoff</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Design Systems</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Branding</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Product Delivery</span>
+      <span class="marquee-star">✦</span><span class="marquee-text">Visual Strategy</span>
+    </div>
+  </div>
+
+  <!-- ── EXPERIENCE ── -->
+  <section class="experience-section">
+    <div class="experience-container">
+      <div class="exp-heading-col">
+        <h2 class="exp-heading">experience</h2>
+      </div>
+      <div class="exp-body-col">
+        <div class="exp-richtext">
+          <p class="exp-p-semibold">
+            Sou uma Product Designer fascinada por construir pontes entre problemas
+            complexos e soluções intuitivas. O que me diferencia é como trago 10 anos
+            de experiência em estratégia de conteúdo para o centro do meu processo de
+            design. Não vejo texto e interface como elementos separados, mas como uma
+            narrativa única que guia o usuário.
+          </p>
+          <p class="exp-p">
+            Foco em equilibrar a fluidez da narrativa com objetivos estratégicos de
+            negócio, atuando em todo o ciclo de vida do produto (do Discovery ao
+            Delivery) ao transformar requisitos complexos em interfaces intuitivas.
+            Meu diferencial está no refinamento de UX: não apenas executo visualmente,
+            mas questiono fluxos e a arquitetura de informação para garantir que o
+            conteúdo seja relevante e a experiência mais humana.
+          </p>
+          <p class="exp-p">
+            Ajudo marcas a transformarem requisitos técnicos complexos em experiências
+            digitais intuitivas. Minha base em Jornalismo e Estratégia de Conteúdo me
+            permite desenhar interfaces que não apenas parecem boas, mas que "falam"
+            a língua do usuário, reduzindo a carga cognitiva e acelerando a conversão.
+          </p>
+        </div>
+        <div class="exp-list">
+          <div class="exp-item">
+            <span class="exp-role">Product Designer @Fetchly</span>
+            <span class="exp-period">2025 – current</span>
+          </div>
+          <div class="exp-item">
+            <span class="exp-role">Product Analyst @movvva</span>
+            <span class="exp-period">jul 2024 – dez 2024</span>
+          </div>
+          <div class="exp-item">
+            <span class="exp-role">Content Strategist</span>
+            <span class="exp-period">2014 – 2023</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EDUCATION TABS ── -->
+  <section class="education-section">
+    <div class="edu-tabs">
+      <div class="edu-tab active">
+        <span class="edu-tab-title">Bachelor in Journalism</span>
+        <span class="edu-tab-sub">2011 – 2014, by Faculdade Cásper Líbero</span>
+      </div>
+      <div class="edu-tab">
+        <span class="edu-tab-title">Food History Specialist</span>
+        <span class="edu-tab-sub">Especialização pela UNISC (2022)</span>
+      </div>
+      <div class="edu-tab">
+        <span class="edu-tab-title">Advanced Training</span>
+        <span class="edu-tab-sub">UX Design, Product Management, Data Product Management, Prompt Engineering and Shopify Development Fundamentals</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BANNER ── -->
+  <section class="banner-section">
+    <div class="banner-inner">
+      <span class="banner-word">let's talk</span>
+      <div class="banner-icon">
+        <svg viewBox="0 0 48 36" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#4285F4" d="M0 36h8V17.5L0 12z"/>
+          <path fill="#34A853" d="M40 36h8V12l-8 5.5z"/>
+          <path fill="#FBBC05" d="M0 12l8 5.5V2z"/>
+          <path fill="#EA4335" d="M48 2h-8v15.5L48 12z"/>
+          <path fill="#EA4335" d="M8 2l16 12L40 2H8z"/>
+          <path fill="#C5221F" d="M0 12l8 5.5V2H0zM48 2v10l-8 5.5V2z"/>
+        </svg>
+      </div>
+      <span class="banner-word">connect</span>
+      <div class="banner-icon banner-icon-sm">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="4" fill="#0077B5"/>
+          <path fill="#fff" d="M10 18h6v18h-6zM13 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6zM20 18h5.5v2.5h.1c.8-1.4 2.7-3 5.6-3 6 0 7.1 3.9 7.1 9V36H32v-8.5c0-2 0-4.7-2.8-4.7s-3.2 2.2-3.2 4.5V36H20V18z"/>
+        </svg>
+      </div>
+      <span class="banner-word">chat</span>
+      <div class="banner-icon banner-icon-sm">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="ig" cx="30%" cy="107%" r="150%">
+              <stop offset="0%" stop-color="#fdf497"/>
+              <stop offset="45%" stop-color="#fd5949"/>
+              <stop offset="60%" stop-color="#d6249f"/>
+              <stop offset="90%" stop-color="#285AEB"/>
+            </radialGradient>
+          </defs>
+          <rect width="48" height="48" rx="12" fill="url(#ig)"/>
+          <rect x="6" y="6" width="36" height="36" rx="10" fill="none" stroke="#fff" stroke-width="3"/>
+          <circle cx="24" cy="24" r="7" fill="none" stroke="#fff" stroke-width="3"/>
+          <circle cx="35" cy="13" r="2.5" fill="#fff"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer id="contact">
+    <div class="footer-top">
+      <span class="footer-tagline">I craft experiences, design products, and tell stories.</span>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+      </div>
+      <a href="mailto:hello@gabe.com" class="btn-link-white">
+        let's connect
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
+          <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+      </a>
+    </div>
+    <div class="footer-words">
+      <div class="footer-word">UX Design</div>
+      <div class="footer-word dim">Creative</div>
+      <div class="footer-word dim">Strategy</div>
+    </div>
+  </footer>
+
+  <script>
+    const mq = window.matchMedia('(max-width: 768px)');
+    function adjustNav(e) {
+      const links = document.querySelector('.nav-links');
+      if (e.matches) {
+        links.style.cssText = 'display:none;position:absolute;top:56px;left:0;right:0;background:#1f1b1d;flex-direction:column;gap:0;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06)';
+        links.querySelectorAll('a').forEach(a => { a.style.cssText = 'display:block;padding:14px 20px;font-size:15px'; });
+      } else {
+        links.style.cssText = '';
+        links.querySelectorAll('a').forEach(a => a.style.cssText = '');
+      }
+    }
+    mq.addEventListener('change', adjustNav);
+    adjustNav(mq);
+  </script>
+
+</body>
+</html>
